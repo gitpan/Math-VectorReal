@@ -8,6 +8,7 @@ END {print "1..1\nnot ok 1   Premature end of Script\n" unless $loaded;}
 ######################### End of black magic.
 
 $testnum = 1;
+$testlib = "blib/lib";
 
 eval { require Math::VectorReal; };
 if ( $@ ) {
@@ -44,7 +45,7 @@ sub check_script_output {
   print "ok ", $testnum++, "\t--- $script script ----\n";
 
   open(OUT, "$script.out") || die;
-  open(TEST, "- |") or exec('perl', $script) or exit 0;
+  open(TEST, "- |") or exec('perl', "-I$testlib", $script) or exit 0;
 
   $/='';  # read sections by paragraph
   while( $t = <TEST> ) {

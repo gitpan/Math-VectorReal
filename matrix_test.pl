@@ -12,7 +12,7 @@
 # location of my libraries (I normally set this via PERL5LIB)
 # #use lib '/home/anthony/lib/perl5';  # location of my libraries
 use FindBin;
-use lib "$FindBin::Bin/blib";
+use lib "$FindBin::Bin/blib/lib";
 
 use strict;
 use Math::MatrixReal;

@@ -166,7 +166,7 @@ reference to create a C<Math::VectorReal> object.
 
 =item clone()
 
-Return a completely new copy of the refering C<Math::VectorReal> object.
+Return a completely new copy of the referring C<Math::VectorReal> object.
 
 =cut
 
@@ -199,11 +199,23 @@ sub clone {
 
 =item array()
 
-Return the x,y,z elements of the refering vector are an array of values.
+Return the x,y,z elements of the referring vector are an array of values.
+
+=item x()
+
+Return the x element of the referring vector.
+
+=item y()
+
+Return the y element of the referring vector.
+
+=item z()
+
+Return the z element of the referring vector.
 
 =item stringify( [ FORMAT ] )
 
-Return the refering verctor as a string. The C<FORMAT> if given is used
+Return the referring verctor as a string. The C<FORMAT> if given is used
 to sprintf format the vector. This is used for all VectorReal to String
 conversions.
 
@@ -235,6 +247,21 @@ directions, without scale, or orientation of a 3 dimensional plane.
 sub array {   # return vector as an array of values
   my $v = shift;
   return @{$v->[0][0]};
+}
+
+sub x {
+  my $v = shift;
+  return ($v->array)[0];
+}
+
+sub y {
+  my $v = shift;
+  return ($v->array)[1];
+}
+
+sub z {
+  my $v = shift;
+  return ($v->array)[2];
 }
 
 sub stringify {   # convert a vector to a string (with optional format)
@@ -348,7 +375,7 @@ sub vector2matrix_col {
 
 =item matrix_col2vector( [COLUMN] )
 
-When refered to by a C<Math::MatrixReal> object, extracts the vector
+When referred to by a C<Math::MatrixReal> object, extracts the vector
 from the matrix. the optional argument defines which row or column of the
 matrix is to be extracted as a C<Math::VectorReal> vector.
 

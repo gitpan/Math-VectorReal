@@ -3,10 +3,10 @@ MANIFEST
 Makefile.PL
 README
 VectorReal.pm
-matrix_test
+matrix_test.pl
 matrix_test.out
-synopsis
+synopsis.pl
 synopsis.out
 test.pl
-vector_test
+vector_test.pl
 vector_test.out

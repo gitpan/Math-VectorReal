@@ -8,7 +8,6 @@ END {print "1..1\nnot ok 1   Premature end of Script\n" unless $loaded;}
 ######################### End of black magic.
 
 $testnum = 1;
-$testlib = "blib/lib";
 
 eval { require Math::VectorReal; };
 if ( $@ ) {
@@ -41,11 +40,11 @@ print "ok ", $testnum++, "\tModule Math::VectorReal Located\n";
 sub check_script_output {
  my $script = shift;
 
-  print "not " unless -f $script;  # script found?
+  print "not " unless -f $script.'.pl';  # script found?
   print "ok ", $testnum++, "\t--- $script script ----\n";
 
   open(OUT, "$script.out") || die;
-  open(TEST, "- |") or exec('perl', "-I$testlib", $script) or exit 0;
+  open(TEST, "- |") or exec('perl', $script.'.pl') or exit 0;
 
   $/='';  # read sections by paragraph
   while( $t = <TEST> ) {
